@@ -46,11 +46,14 @@ const HeroSection = () => {
                 </p>
               </motion.div>
 
-              <p className="mt-5 text-sm sm:text-[15px] leading-relaxed max-w-xl mx-auto lg:mx-0 text-[hsl(var(--muted-foreground))] text-pretty">
+              <p className="mt-5 text-sm sm:text-[15px] leading-relaxed max-w-xl mx-auto lg:mx-0 text-[hsl(var(--muted-foreground))] text-pretty text-justify">
                 {ABOUT.paragraphs[0]}
               </p>
-              <p className="mt-3 text-sm leading-relaxed max-w-xl mx-auto lg:mx-0 text-[hsl(var(--muted-foreground)/0.85)] text-pretty hidden sm:block">
+              <p className="mt-3 text-sm leading-relaxed max-w-xl mx-auto lg:mx-0 text-[hsl(var(--muted-foreground)/0.85)] text-pretty hidden sm:block text-justify">
                 {ABOUT.paragraphs[1]}
+              </p>
+              <p className="mt-3 text-sm leading-relaxed max-w-xl mx-auto lg:mx-0 text-[hsl(var(--muted-foreground)/0.85)] text-pretty hidden sm:block text-justify">
+                {ABOUT.paragraphs[2]}
               </p>
 
               <motion.div className="flex flex-wrap gap-2 mt-6 justify-center lg:justify-start">
@@ -72,7 +75,9 @@ const HeroSection = () => {
                   title={CONTACT_INFO.email}
                 >
                   <Mail className="hero-meta-icon" aria-hidden />
-                  <span className="hero-meta-link-text">{CONTACT_INFO.email}</span>
+                  <span className="hero-meta-link-text">
+                    {CONTACT_INFO.email}
+                  </span>
                 </a>
                 <a
                   href={CONTACT_INFO.linkedin}

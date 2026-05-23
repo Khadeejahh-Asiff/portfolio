@@ -33,7 +33,7 @@ export const ABOUT = {
   paragraphs: [
     'I build fast, scalable web apps using React, Next.js, Node.js, NestJS, and MongoDB. From job portals to internal workflow tools used by real teams.',
     "I've shipped production features across startup, agency, and freelance environments, working directly with clients to turn requirements into working products. I care about clean architecture, responsive UI, and code that's easy to maintain.",
-    'Currently building at Techverx. Open to remote roles and freelance projects feel free to connect :)',
+    'Open to remote roles and freelance projects feel free to connect :)',
   ],
 } as const;
 
