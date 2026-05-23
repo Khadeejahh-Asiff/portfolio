@@ -15,7 +15,6 @@ export const StructuredData = () => {
       addressCountry: 'Pakistan',
     },
     email: CONTACT_INFO.email,
-    telephone: CONTACT_INFO.phone,
     knowsAbout: [
       'React.js',
       'Next.js',
