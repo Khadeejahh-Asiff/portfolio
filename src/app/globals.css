@@ -1,7 +1,36 @@
 @import 'tailwindcss';
 
-/* Cool grey-black palette */
-:root,
+/* Light mode — wheaty white bg, soft nude brown surfaces */
+:root {
+  --background: 40 36% 95%;
+  --foreground: 25 18% 16%;
+  --muted: 34 28% 90%;
+  --muted-foreground: 25 10% 38%;
+  --border: 28 20% 78%;
+  --primary: 25 22% 20%;
+  --primary-foreground: 40 38% 96%;
+  --secondary: 30 26% 87%;
+  --secondary-foreground: 25 18% 16%;
+  --accent: 22 16% 40%;
+  --accent-foreground: 40 38% 96%;
+  --destructive: 0 72% 50%;
+  --destructive-foreground: 40 38% 96%;
+  --ring: 25 22% 20%;
+  --warm-beige: 32 28% 84%;
+  --portrait-border: 28 18% 72%;
+  --teal-dark: 34 26% 89%;
+  --teal-light: 25 14% 46%;
+  --teal-medium: 25 16% 34%;
+  --card-bg: 28 24% 87%;
+  --card-elevated: 26 22% 84%;
+  --testimonial-teal: 25 22% 20%;
+  --testimonial-accent: 22 16% 40%;
+  --gold-accent: 28 18% 38%;
+  --glow-violet: 25 14% 36%;
+  --glow-coral: 22 18% 40%;
+}
+
+/* Dark mode */
 .dark {
   --background: 240 4% 5%;
   --foreground: 240 5% 96%;
@@ -29,35 +58,6 @@
   --gold-accent: 240 5% 82%;
   --glow-violet: 240 8% 32%;
   --glow-coral: 240 6% 52%;
-}
-
-.light {
-  --background: 240 6% 97%;
-  --foreground: 240 6% 10%;
-  --muted: 240 5% 93%;
-  --muted-foreground: 240 4% 42%;
-  --border: 240 4% 86%;
-  --primary: 240 6% 12%;
-  --primary-foreground: 0 0% 100%;
-  --secondary: 240 5% 94%;
-  --secondary-foreground: 240 6% 10%;
-  --accent: 240 5% 38%;
-  --accent-foreground: 0 0% 100%;
-  --destructive: 0 72% 50%;
-  --destructive-foreground: 0 0% 100%;
-  --ring: 240 6% 12%;
-  --warm-beige: 240 4% 88%;
-  --portrait-border: 240 4% 78%;
-  --teal-dark: 240 5% 90%;
-  --teal-light: 240 5% 52%;
-  --teal-medium: 240 5% 38%;
-  --card-bg: 0 0% 100%;
-  --card-elevated: 240 6% 98%;
-  --testimonial-teal: 240 6% 12%;
-  --testimonial-accent: 240 5% 38%;
-  --gold-accent: 240 5% 42%;
-  --glow-violet: 240 8% 42%;
-  --glow-coral: 240 6% 45%;
 }
 
 * {
@@ -138,6 +138,26 @@ body {
       background-position: 720px 180px;
     }
   }
+}
+
+/* Enhanced warm waves in light mode */
+:root:not(.dark) .site-background::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='960' height='240' viewBox='0 0 960 240'%3E%3Cpath d='M0 120 C160 60 320 180 480 120 S800 60 960 120' fill='none' stroke='hsl(26 24%25 48%25 / 0.22)' stroke-width='2'/%3E%3Cpath d='M0 160 C160 100 320 220 480 160 S800 100 960 160' fill='none' stroke='hsl(30 20%25 55%25 / 0.17)' stroke-width='1.5'/%3E%3Cpath d='M0 80 C160 20 320 140 480 80 S800 20 960 80' fill='none' stroke='hsl(22 18%25 42%25 / 0.14)' stroke-width='1.25'/%3E%3Cpath d='M0 200 C160 150 320 230 480 200 S800 150 960 200' fill='none' stroke='hsl(32 22%25 68%25 / 0.42)' stroke-width='1'/%3E%3C/svg%3E");
+  opacity: 0.92;
+}
+
+:root:not(.dark) .site-background::after {
+  background:
+    radial-gradient(
+      ellipse 70% 45% at 12% 0%,
+      hsl(28 28% 52% / 0.09) 0%,
+      transparent 55%
+    ),
+    radial-gradient(
+      ellipse 55% 40% at 88% 100%,
+      hsl(35 30% 62% / 0.08) 0%,
+      transparent 50%
+    );
 }
 
 /* Let body waves show through main sections */

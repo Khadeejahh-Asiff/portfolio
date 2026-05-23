@@ -3,12 +3,12 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Menu, X, ChevronDown } from 'lucide-react';
-import { NAV_ITEMS } from '@/constants';
+import { NAV_ITEMS, PERSONAL_INFO } from '@/constants';
 import { useActiveSection } from '@/hooks/useActiveSection';
 import { useScrollProgress } from '@/hooks/useScrollProgress';
 import { scrollToSection } from '@/utils/scrollUtils';
 import { ProfileAvatar } from '@/components/ui/ProfileAvatar';
-import { PERSONAL_INFO } from '@/constants';
+import { ThemeToggle } from '@/components/ui/ThemeToggle';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -65,7 +65,7 @@ const Navigation = () => {
         className="fixed top-1 left-0 right-0 z-50 bg-[hsl(var(--background)/0.85)] backdrop-blur-xl border-b border-[hsl(var(--border)/0.2)]"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div className="flex justify-between items-center h-16 sm:h-20">
+          <div className="flex justify-between items-center h-16 sm:h-20">
             <motion.button
               type="button"
               whileHover={{ scale: 1.01 }}
@@ -78,7 +78,7 @@ const Navigation = () => {
               </span>
             </motion.button>
 
-            <div className="hidden md:flex items-center gap-6">
+            <motion.div className="hidden md:flex items-center gap-5">
               <nav
                 className="flex items-center space-x-8"
                 role="navigation"
@@ -119,9 +119,11 @@ const Navigation = () => {
                   </motion.button>
                 ))}
               </nav>
-            </div>
+              <ThemeToggle />
+            </motion.div>
 
             <div className="md:hidden flex items-center gap-2">
+              <ThemeToggle />
               <motion.button
                 type="button"
                 whileHover={{ scale: 1.05 }}
@@ -137,7 +139,7 @@ const Navigation = () => {
                 )}
               </motion.button>
             </div>
-          </motion.div>
+          </div>
 
           {isOpen && (
             <motion.div
