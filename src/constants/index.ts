@@ -121,7 +121,7 @@ export const PROJECTS_DATA = [
     name: 'Heartland Rehab',
     category: 'Healthcare · Physical Therapy',
     description:
-      'A rehabilitation platform offering personalized physical therapy and recovery programs — holistic care through a user-friendly interface and streamlined patient experience.',
+      'A rehabilitation platform offering personalized physical therapy and recovery programs, providing holistic care through a user-friendly interface and streamlined patient experience.',
     image: '/p1.png',
     tech: ['React', 'Next.js', 'TypeScript', 'REST APIs'],
     featured: true,
@@ -132,9 +132,9 @@ export const PROJECTS_DATA = [
     name: 'HireDroid',
     category: 'Job Portal · HR',
     description:
-      'Skill-focused job portal connecting employers with candidates — explore opportunities, build profiles, and manage hiring workflows efficiently.',
+      'Skill-focused job portal connecting employers with candidates, exploring opportunities, build profiles, and manage hiring workflows efficiently.',
     image: '/p3.png',
-    tech: ['Next.js', 'React', 'TypeScript', 'SWR'],
+    tech: ['Next.js', 'Node.js', 'TypeScript', 'SWR'],
   },
   {
     id: 'scrumdroid',
@@ -142,7 +142,7 @@ export const PROJECTS_DATA = [
     name: 'ScrumDroid',
     category: 'Management Platform',
     description:
-      'Web-based platform streamlining internal workflows — centralized interface for tasks, activity monitoring, and data across modules.',
+      'Web-based platform streamlining internal workflows, providing a centralized interface for tasks, activity monitoring, and data across modules.',
     image: '/p2.png',
     tech: ['React.js', 'SWR', 'Performance', 'Caching'],
   },
@@ -152,9 +152,9 @@ export const PROJECTS_DATA = [
     name: 'AkredCenter',
     category: 'Accreditation Management',
     description:
-      'Secure dashboard to track, manage, and organize accreditation data — simplifying submission, approval, and status tracking workflows.',
-    image: '/p4.jpeg',
-    tech: ['React', 'Next.js', 'Dashboard', 'Secure APIs'],
+      'Secure dashboard to track, manage, and organize accreditation data, simplifying submission, approval, and status tracking workflows.',
+    image: '/p4.png',
+    tech: ['Nest.js', 'Next.js', 'TypeScript', 'REST APIs'],
   },
   {
     id: 'tickato',
@@ -162,9 +162,9 @@ export const PROJECTS_DATA = [
     name: 'Tickato',
     category: 'Event Ticketing',
     description:
-      'Ticket management platform for event ticketing and user interactions — intuitive browsing and scalable ticket workflows.',
-    image: '/p5.jpeg',
-    tech: ['React', 'Next.js', 'TypeScript', 'Scalable UI'],
+      'Ticket management platform for event ticketing and user interactions, providing intuitive browsing and scalable ticket workflows.',
+    image: '/p9.png',
+    tech: ['Node.js', 'Next.js', 'TypeScript', 'Scalable UI'],
   },
   {
     id: 'dmg',
@@ -173,7 +173,7 @@ export const PROJECTS_DATA = [
     category: 'AI · Email Automation',
     description:
       'Intelligent system using a Vision-Language Model to categorize emails and extract structured JSON for workflow automation.',
-    image: '/p6.jpeg',
+    image: '/p6.png',
     tech: ['VLM', 'AI', 'JSON Extraction', 'Automation'],
   },
 ] as const;
