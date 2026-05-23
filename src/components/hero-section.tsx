@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { PERSONAL_INFO, CONTACT_INFO, ABOUT, HERO_TECH } from '@/constants';
 import { ProfileAvatar } from '@/components/ui/ProfileAvatar';
 import { scrollToSection } from '@/utils/scrollUtils';
-import { MapPin, Mail, Linkedin, ArrowRight, Briefcase } from 'lucide-react';
+import { MapPin, Mail, Linkedin, ArrowRight } from 'lucide-react';
 
 const HeroSection = () => {
   return (
@@ -104,17 +104,6 @@ const HeroSection = () => {
                   priority
                   className="hero-profile-frame w-full max-w-[300px] sm:max-w-[340px] aspect-[4/5] h-auto !w-full"
                 />
-                <motion.div className="hero-float-card hero-float-card--role">
-                  <Briefcase className="h-3.5 w-3.5 shrink-0 text-[hsl(var(--primary))]" />
-                  <motion.div>
-                    <p className="text-[10px] uppercase tracking-wider text-[hsl(var(--muted-foreground))]">
-                      Currently
-                    </p>
-                    <p className="text-xs font-medium text-[hsl(var(--foreground))]">
-                      Techverx
-                    </p>
-                  </motion.div>
-                </motion.div>
                 <motion.div className="hero-float-card hero-float-card--stack">
                   <p className="text-[10px] uppercase tracking-wider text-[hsl(var(--muted-foreground))] mb-1">
                     Stack
