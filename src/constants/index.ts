@@ -127,16 +127,6 @@ export const PROJECTS_DATA = [
     featured: true,
   },
   {
-    id: 'hiredroid',
-    featured: false,
-    name: 'HireDroid',
-    category: 'Job Portal · HR',
-    description:
-      'Skill-focused job portal connecting employers with candidates, exploring opportunities, build profiles, and manage hiring workflows efficiently.',
-    image: '/p3.png',
-    tech: ['Next.js', 'Node.js', 'TypeScript', 'SWR'],
-  },
-  {
     id: 'scrumdroid',
     featured: false,
     name: 'ScrumDroid',
@@ -145,6 +135,16 @@ export const PROJECTS_DATA = [
       'Web-based platform streamlining internal workflows, providing a centralized interface for tasks, activity monitoring, and data across modules.',
     image: '/p2.png',
     tech: ['React.js', 'SWR', 'Performance', 'Caching'],
+  },
+  {
+    id: 'hiredroid',
+    featured: false,
+    name: 'HireDroid',
+    category: 'Job Portal · HR',
+    description:
+      'Skill-focused job portal connecting employers with candidates, exploring opportunities, build profiles, and manage hiring workflows efficiently.',
+    image: '/p3.png',
+    tech: ['Next.js', 'Node.js', 'TypeScript', 'SWR'],
   },
   {
     id: 'akredcenter',
@@ -157,30 +157,39 @@ export const PROJECTS_DATA = [
     tech: ['Nest.js', 'Next.js', 'TypeScript', 'REST APIs'],
   },
   {
-    id: 'tickato',
-    featured: false,
-    name: 'Tickato',
-    category: 'Event Ticketing',
-    description:
-      'Ticket management platform for event ticketing and user interactions, providing intuitive browsing and scalable ticket workflows.',
-    image: '/p9.png',
-    tech: ['Node.js', 'Next.js', 'TypeScript', 'Scalable UI'],
-  },
-  {
     id: 'dmg',
     featured: false,
     name: 'DMG',
     category: 'AI · Email Automation',
     description:
       'Intelligent system using a Vision-Language Model to categorize emails and extract structured JSON for workflow automation.',
-    image: '/p6.png',
+    image: '/p5.png',
     tech: ['VLM', 'AI', 'JSON Extraction', 'Automation'],
+  },
+  {
+    id: 'vorpix',
+    featured: false,
+    name: 'Vorpix',
+    category: 'AI · Image, Video, Audio & Text Generation',
+    description:
+      'A platform for generating images, videos, audio, and text using AI, providing a comprehensive set of problems and solutions.',
+    image: '/p6.png',
+    tech: ['AI', 'LLM', 'FAST API', 'Voice Cloning', 'OpenAI'],
+  },
+  {
+    id: 'tickato',
+    featured: false,
+    name: 'Tickato',
+    category: 'Event Ticketing',
+    description:
+      'Ticket management platform for event ticketing and user interactions, providing intuitive browsing and scalable ticket workflows.',
+    image: '/p7.png',
+    tech: ['Node.js', 'Next.js', 'TypeScript', 'Scalable UI'],
   },
 ] as const;
 
 export const CONTACT_INFO = {
   email: 'khadeejaasif323@gmail.com',
-  phone: '+92 333 4304342',
   location: 'Lahore, Pakistan',
   linkedin: 'https://linkedin.com/in/khadeejah-asif',
   github: 'https://github.com/Khadeejahh-Asiff',

@@ -1,140 +1,120 @@
 'use client';
 
-import { motion } from 'framer-motion';
-import { useInView } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { SectionHeader } from '@/components/ui/SectionHeader';
-import { Mail, Github } from 'lucide-react';
+import { Mail, Github, Linkedin, ArrowUpRight, MapPin } from 'lucide-react';
 import { CONTACT_INFO } from '@/constants';
+
+const CONTACT_CHANNELS = [
+  {
+    id: 'email',
+    icon: Mail,
+    title: 'Email',
+    subtitle: 'Project inquiries',
+    description:
+      'Reach out for collaborations, freelance work, or just to say hello.',
+    href: `mailto:${CONTACT_INFO.email}?subject=Hello%20Khadeeja`,
+    cta: CONTACT_INFO.email,
+    external: false,
+  },
+  {
+    id: 'github',
+    icon: Github,
+    title: 'GitHub',
+    subtitle: 'Code & projects',
+    description: 'Browse repositories, contributions, and open-source work.',
+    href: CONTACT_INFO.github,
+    cta: 'View profile',
+    external: true,
+  },
+  {
+    id: 'linkedin',
+    icon: Linkedin,
+    title: 'LinkedIn',
+    subtitle: 'Professional network',
+    description:
+      'Connect for opportunities, networking, and career conversations.',
+    href: CONTACT_INFO.linkedin,
+    cta: 'Connect on LinkedIn',
+    external: true,
+  },
+] as const;
 
 const ContactSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section id="contact" className="py-20 bg-background scroll-mt-24">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section
+      id="contact"
+      className="contact-section py-20 sm:py-24 scroll-mt-24"
+    >
+      <motion.div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.8 }}
-          className="space-y-12 sm:space-y-16"
+          className="space-y-10 sm:space-y-12"
         >
           <SectionHeader
             title="Get In Touch"
-            description="Have an exciting project you need help with? I'm always interested in new opportunities and would love to hear from you!"
             indicator="CONTACT"
             isInView={isInView}
             className="text-center"
           />
 
-          {/* Contact Cards */}
-          <div className="grid sm:grid-cols-2 gap-6 sm:gap-8">
-            {/* Email Contact Card */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="expertise-card group relative p-6 sm:p-8 lg:p-12"
-            >
-              <div className="flex items-center mb-6 sm:mb-8">
-                <div className="expertise-icon relative">
-                  <Mail
-                    className="h-8 w-8 sm:h-10 sm:w-10"
-                    style={{ color: 'hsl(var(--accent))' }}
-                  />
-                  <div className="absolute inset-0 bg-hsl(var(--accent)) opacity-10 rounded-full blur-sm group-hover:opacity-20 transition-opacity"></div>
-                </div>
-                <div className="ml-4 sm:ml-6">
-                  <h3
-                    className="text-xl sm:text-2xl font-semibold text-left"
-                    style={{ color: 'hsl(var(--foreground))' }}
-                  >
-                    Email Contact
-                  </h3>
-                  <p
-                    className="text-xs sm:text-sm text-left"
-                    style={{ color: 'hsl(var(--accent))' }}
-                  >
-                    Direct Communication
-                  </p>
-                </div>
-              </div>
-              <p
-                className="text-sm sm:text-base lg:text-lg leading-relaxed mb-6 sm:mb-8 text-left"
-                style={{ color: 'hsl(var(--muted-foreground))' }}
-              >
-                Send me an email for project inquiries, collaborations, or just
-                to say hello.
-              </p>
-              <div>
-                <p className="text-xs sm:text-sm text-foreground uppercase tracking-wider mb-3 sm:mb-4 text-center">
-                  Contact
-                </p>
-                <a
-                  href={`mailto:${CONTACT_INFO.email}`}
-                  className="block w-full px-4 py-3 rounded-lg bg-background/50 border border-primary text-foreground hover:bg-primary hover:text-background hover:border-primary transition-all duration-300 text-sm text-center font-medium"
+          <div className="contact-grid">
+            {CONTACT_CHANNELS.map((channel, index) => {
+              const Icon = channel.icon;
+              return (
+                <motion.a
+                  key={channel.id}
+                  href={channel.href}
+                  target={channel.external ? '_blank' : undefined}
+                  rel={channel.external ? 'noopener noreferrer' : undefined}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={
+                    isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
+                  }
+                  transition={{ duration: 0.55, delay: 0.15 + index * 0.1 }}
+                  className="contact-panel group"
                 >
-                  Email
-                </a>
-              </div>
-            </motion.div>
+                  <div className="contact-panel-header">
+                    <div className="contact-panel-icon">
+                      <Icon className="h-5 w-5" aria-hidden />
+                    </div>
+                    <div>
+                      <h3 className="contact-panel-title">{channel.title}</h3>
+                      <p className="contact-panel-subtitle">
+                        {channel.subtitle}
+                      </p>
+                    </div>
+                  </div>
 
-            {/* GitHub Contact Card */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ duration: 0.6, delay: 0.6 }}
-              className="expertise-card group relative p-6 sm:p-8 lg:p-12"
-            >
-              <div className="flex items-center mb-6 sm:mb-8">
-                <div className="expertise-icon relative">
-                  <Github
-                    className="h-8 w-8 sm:h-10 sm:w-10"
-                    style={{ color: 'hsl(var(--accent))' }}
-                  />
-                  <div className="absolute inset-0 bg-hsl(var(--accent)) opacity-10 rounded-full blur-sm group-hover:opacity-20 transition-opacity"></div>
-                </div>
-                <div className="ml-4 sm:ml-6">
-                  <h3
-                    className="text-xl sm:text-2xl font-semibold text-left"
-                    style={{ color: 'hsl(var(--foreground))' }}
-                  >
-                    GitHub Code
-                  </h3>
-                  <p
-                    className="text-xs sm:text-sm text-left"
-                    style={{ color: 'hsl(var(--accent))' }}
-                  >
-                    Repository Access
-                  </p>
-                </div>
-              </div>
-              <p
-                className="text-sm sm:text-base lg:text-lg leading-relaxed mb-6 sm:mb-8 text-left"
-                style={{ color: 'hsl(var(--muted-foreground))' }}
-              >
-                Check out my projects and contributions on GitHub. These are my
-                some masterpieces.
-              </p>
-              <div>
-                <p className="text-xs sm:text-sm text-foreground uppercase tracking-wider mb-3 sm:mb-4 text-center">
-                  Repository
-                </p>
-                <a
-                  href={CONTACT_INFO.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block w-full px-4 py-3 rounded-lg bg-background/50 border border-primary text-foreground hover:bg-primary hover:text-background hover:border-primary transition-all duration-300 text-sm text-center font-medium"
-                >
-                  GitHub
-                </a>
-              </div>
-            </motion.div>
+                  <p className="contact-panel-desc">{channel.description}</p>
+
+                  <span className="contact-panel-cta">
+                    {channel.cta}
+                    <ArrowUpRight aria-hidden />
+                  </span>
+                </motion.a>
+              );
+            })}
           </div>
+
+          <p className="contact-footer-note">
+            <MapPin
+              className="inline h-3.5 w-3.5 -mt-0.5 mr-1 text-[hsl(var(--primary))]"
+              aria-hidden
+            />
+            Based in <span>{CONTACT_INFO.location}</span>
+            {' · '}
+            Open to remote & freelance
+          </p>
         </motion.div>
-      </div>
+      </motion.div>
     </section>
   );
 };

@@ -24,7 +24,6 @@ const ProjectsShowcaseSection = () => {
         >
           <SectionHeader
             title="Project Showcase"
-            description="A scroll through products I've helped build"
             indicator="WORK"
             isInView={isInView}
             className="text-center mb-10 sm:mb-12"

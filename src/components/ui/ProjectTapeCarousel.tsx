@@ -27,13 +27,26 @@ const ProjectTapeCarousel = () => {
                   alt={project.name}
                   fill
                   className="object-cover object-top"
-                  sizes="340px"
+                  sizes="380px"
                 />
+                <div className="showcase-card-image-fade" aria-hidden />
               </div>
               <div className="showcase-card-body">
                 <h3 className="showcase-card-title">{project.name}</h3>
                 <p className="showcase-card-meta">{project.category}</p>
                 <p className="showcase-card-desc">{project.description}</p>
+                {project.tech.length > 0 && (
+                  <div className="showcase-card-tech">
+                    <span className="showcase-tech-label">Tech stack</span>
+                    <ul className="showcase-tech-pills">
+                      {project.tech.map(tech => (
+                        <li key={tech}>
+                          <span className="showcase-pill">{tech}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
               </div>
             </article>
           ))}
