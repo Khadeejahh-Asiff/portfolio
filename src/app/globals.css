@@ -1,63 +1,63 @@
 @import 'tailwindcss';
 
-/* Portrait-inspired: warm charcoal, greige, dusty rose */
+/* Cool grey-black palette */
 :root,
 .dark {
-  --background: 30 10% 6%;
-  --foreground: 35 18% 94%;
-  --muted: 30 8% 11%;
-  --muted-foreground: 30 8% 58%;
-  --border: 30 10% 17%;
-  --primary: 12 24% 55%;
-  --primary-foreground: 35 20% 98%;
-  --secondary: 30 8% 13%;
-  --secondary-foreground: 35 18% 94%;
-  --accent: 28 16% 72%;
-  --accent-foreground: 30 10% 8%;
+  --background: 240 4% 5%;
+  --foreground: 240 5% 96%;
+  --muted: 240 3% 10%;
+  --muted-foreground: 240 4% 58%;
+  --border: 240 3% 16%;
+  --primary: 0 0% 90%;
+  --primary-foreground: 240 5% 8%;
+  --secondary: 240 3% 12%;
+  --secondary-foreground: 240 5% 96%;
+  --accent: 240 5% 72%;
+  --accent-foreground: 240 5% 8%;
   --destructive: 0 72% 55%;
   --destructive-foreground: 0 0% 100%;
-  --ring: 12 24% 55%;
-  --warm-beige: 35 14% 78%;
-  --portrait-border: 35 12% 72%;
-  --teal-dark: 30 10% 8%;
-  --teal-light: 12 20% 65%;
-  --teal-medium: 12 22% 45%;
-  --card-bg: 30 9% 9%;
-  --card-elevated: 30 8% 12%;
-  --testimonial-teal: 12 24% 55%;
-  --testimonial-accent: 28 16% 72%;
-  --gold-accent: 35 18% 75%;
-  --glow-violet: 12 30% 40%;
-  --glow-coral: 12 24% 55%;
+  --ring: 0 0% 90%;
+  --warm-beige: 240 5% 76%;
+  --portrait-border: 240 4% 38%;
+  --teal-dark: 240 4% 7%;
+  --teal-light: 240 6% 68%;
+  --teal-medium: 240 5% 48%;
+  --card-bg: 240 3% 7%;
+  --card-elevated: 240 3% 11%;
+  --testimonial-teal: 0 0% 90%;
+  --testimonial-accent: 240 5% 72%;
+  --gold-accent: 240 5% 82%;
+  --glow-violet: 240 8% 32%;
+  --glow-coral: 240 6% 52%;
 }
 
 .light {
-  --background: 35 20% 97%;
-  --foreground: 30 15% 12%;
-  --muted: 35 16% 93%;
-  --muted-foreground: 30 8% 42%;
-  --border: 35 12% 86%;
-  --primary: 12 28% 48%;
+  --background: 240 6% 97%;
+  --foreground: 240 6% 10%;
+  --muted: 240 5% 93%;
+  --muted-foreground: 240 4% 42%;
+  --border: 240 4% 86%;
+  --primary: 240 6% 12%;
   --primary-foreground: 0 0% 100%;
-  --secondary: 35 18% 94%;
-  --secondary-foreground: 30 15% 12%;
-  --accent: 12 22% 42%;
+  --secondary: 240 5% 94%;
+  --secondary-foreground: 240 6% 10%;
+  --accent: 240 5% 38%;
   --accent-foreground: 0 0% 100%;
   --destructive: 0 72% 50%;
   --destructive-foreground: 0 0% 100%;
-  --ring: 12 28% 48%;
-  --warm-beige: 35 18% 88%;
-  --portrait-border: 35 14% 80%;
-  --teal-dark: 35 16% 90%;
-  --teal-light: 12 22% 55%;
-  --teal-medium: 12 24% 42%;
+  --ring: 240 6% 12%;
+  --warm-beige: 240 4% 88%;
+  --portrait-border: 240 4% 78%;
+  --teal-dark: 240 5% 90%;
+  --teal-light: 240 5% 52%;
+  --teal-medium: 240 5% 38%;
   --card-bg: 0 0% 100%;
-  --card-elevated: 35 20% 98%;
-  --testimonial-teal: 12 28% 48%;
-  --testimonial-accent: 12 22% 42%;
-  --gold-accent: 12 20% 45%;
-  --glow-violet: 12 25% 45%;
-  --glow-coral: 12 28% 48%;
+  --card-elevated: 240 6% 98%;
+  --testimonial-teal: 240 6% 12%;
+  --testimonial-accent: 240 5% 38%;
+  --gold-accent: 240 5% 42%;
+  --glow-violet: 240 8% 42%;
+  --glow-coral: 240 6% 45%;
 }
 
 * {
@@ -65,7 +65,9 @@
 }
 
 body {
-  background-color: hsl(var(--background));
+  position: relative;
+  z-index: 0;
+  background-color: transparent;
   color: hsl(var(--foreground));
   font-family: var(--font-inter), system-ui, sans-serif;
   line-height: 1.5;
@@ -75,9 +77,87 @@ body {
     color 0.35s ease;
 }
 
+/* Fixed wave wallpaper — sits behind all sections without changing them */
+.site-background::before,
+.site-background::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.site-background::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='960' height='240' viewBox='0 0 960 240'%3E%3Cpath d='M0 120 C160 60 320 180 480 120 S800 60 960 120' fill='none' stroke='hsl(0 0%25 72%25 / 0.24)' stroke-width='2'/%3E%3Cpath d='M0 160 C160 100 320 220 480 160 S800 100 960 160' fill='none' stroke='hsl(240 5%25 58%25 / 0.18)' stroke-width='1.5'/%3E%3Cpath d='M0 80 C160 20 320 140 480 80 S800 20 960 80' fill='none' stroke='hsl(0 0%25 55%25 / 0.14)' stroke-width='1.25'/%3E%3Cpath d='M0 200 C160 150 320 230 480 200 S800 150 960 200' fill='none' stroke='hsl(240 4%25 35%25 / 0.55)' stroke-width='1'/%3E%3C/svg%3E");
+  background-size: 960px 240px;
+  background-repeat: repeat;
+  background-position: 0 0;
+  opacity: 1;
+}
+
+.site-background::after {
+  background:
+    radial-gradient(
+      ellipse 70% 45% at 15% 0%,
+      hsl(var(--primary) / 0.07) 0%,
+      transparent 55%
+    ),
+    radial-gradient(
+      ellipse 55% 40% at 85% 100%,
+      hsl(var(--warm-beige) / 0.05) 0%,
+      transparent 50%
+    );
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .site-background::before {
+    animation: site-wave-drift 90s linear infinite;
+  }
+}
+
+@keyframes site-wave-drift {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 960px 240px;
+  }
+}
+
+@media (max-width: 768px) {
+  .site-background::before {
+    background-size: 720px 180px;
+    opacity: 0.9;
+  }
+
+  @keyframes site-wave-drift {
+    from {
+      background-position: 0 0;
+    }
+    to {
+      background-position: 720px 180px;
+    }
+  }
+}
+
+/* Let body waves show through main sections */
+#contact {
+  background: hsl(var(--background) / 0.5) !important;
+}
+
+#showcase {
+  background-color: hsl(var(--muted) / 0.22) !important;
+}
+
+.site-background main[role='main'] {
+  position: relative;
+  z-index: 1;
+}
+
 html {
   scroll-behavior: auto;
   scroll-padding-top: 5.5rem;
+  background-color: hsl(var(--background));
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -684,9 +764,9 @@ body.cursor-clicking .custom-cursor-ring {
 .hero-section {
   background: linear-gradient(
     180deg,
-    hsl(var(--background)) 0%,
-    hsl(var(--muted) / 0.5) 45%,
-    hsl(var(--background)) 100%
+    hsl(var(--background) / 0.7) 0%,
+    hsl(var(--muted) / 0.4) 45%,
+    hsl(var(--background) / 0.7) 100%
   );
 }
 
@@ -900,7 +980,7 @@ body.cursor-clicking .custom-cursor-ring {
 
 /* Expertise section — panel grid */
 .expertise-section {
-  background: hsl(var(--background));
+  background: hsl(var(--background) / 0.5);
   overflow: hidden;
 }
 

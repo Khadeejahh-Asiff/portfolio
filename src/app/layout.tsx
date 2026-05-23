@@ -84,14 +84,14 @@ export default function RootLayout({
         />
         <link rel="icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-        <meta name="theme-color" content="#110f0e" />
+        <meta name="theme-color" content="#0c0c0e" />
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1, maximum-scale=5"
         />
         <StructuredData />
       </head>
-      <body className={`${inter.variable} font-sans antialiased`}>
+      <body className={`${inter.variable} font-sans antialiased site-background`}>
         <ThemeProvider
           attribute="class"
           forcedTheme="dark"
