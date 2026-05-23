@@ -7,7 +7,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="py-12 sm:py-16 border-t border-hsl(var(--border) / 0.2)">
+    <footer className="py-12 sm:py-16 border-t border-[hsl(var(--border)/0.35)] bg-[hsl(var(--card-elevated)/0.85)]">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
