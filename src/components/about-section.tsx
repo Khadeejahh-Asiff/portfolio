@@ -23,7 +23,6 @@ const ExpertiseSection = () => {
         >
           <SectionHeader
             title="My Expertise"
-            description="Stacks I ship with — from UI to deployment"
             indicator="EXPERTISE"
             isInView={isInView}
             className="text-center"
