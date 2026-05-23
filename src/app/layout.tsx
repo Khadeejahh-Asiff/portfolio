@@ -82,8 +82,6 @@ export default function RootLayout({
           href="https://fonts.gstatic.com"
           crossOrigin="anonymous"
         />
-        <link rel="icon" href="/favicon.ico" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <meta name="theme-color" content="#f0e8dc" media="(prefers-color-scheme: light)" />
         <meta name="theme-color" content="#0c0c0e" media="(prefers-color-scheme: dark)" />
         <meta
