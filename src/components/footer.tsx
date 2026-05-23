@@ -39,7 +39,7 @@ const Footer = () => {
 
           {/* Copyright */}
           <div className="text-xs sm:text-sm text-hsl(var(--muted-foreground)) font-mono px-4">
-            © {currentYear} Maryam Ali • All rights reserved
+            © {currentYear} Khadeeja Asif • All rights reserved
           </div>
         </motion.div>
       </div>

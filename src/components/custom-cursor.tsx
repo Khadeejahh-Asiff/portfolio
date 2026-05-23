@@ -1,108 +1,68 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef } from 'react';
 
 export default function CustomCursor() {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [isHovering, setIsHovering] = useState(false);
-  const [isClicking, setIsClicking] = useState(false);
-  const [cursorType, setCursorType] = useState('default');
+  const dotRef = useRef<HTMLDivElement>(null);
+  const ringRef = useRef<HTMLDivElement>(null);
+  const target = useRef({ x: 0, y: 0 });
+  const ring = useRef({ x: 0, y: 0 });
+  const rafId = useRef(0);
 
   useEffect(() => {
-    const updateMousePosition = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
+    const finePointer = window.matchMedia('(pointer: fine)').matches;
+    const reducedMotion = window.matchMedia(
+      '(prefers-reduced-motion: reduce)'
+    ).matches;
+
+    if (!finePointer || reducedMotion) return;
+
+    const dot = dotRef.current;
+    const ringEl = ringRef.current;
+    if (!dot || !ringEl) return;
+
+    document.documentElement.classList.add('custom-cursor-active');
+
+    const tick = () => {
+      ring.current.x += (target.current.x - ring.current.x) * 0.18;
+      ring.current.y += (target.current.y - ring.current.y) * 0.18;
+
+      const clicking = document.body.classList.contains('cursor-clicking');
+      const dotScale = clicking ? 0.75 : 1;
+      const ringScale = clicking ? 1.15 : 1;
+
+      dot.style.transform = `translate3d(${target.current.x}px, ${target.current.y}px, 0) translate(-50%, -50%) scale(${dotScale})`;
+      ringEl.style.transform = `translate3d(${ring.current.x}px, ${ring.current.y}px, 0) translate(-50%, -50%) scale(${ringScale})`;
+      rafId.current = requestAnimationFrame(tick);
     };
 
-    const handleMouseDown = () => setIsClicking(true);
-    const handleMouseUp = () => setIsClicking(false);
+    rafId.current = requestAnimationFrame(tick);
 
-    // Add event listeners
-    window.addEventListener('mousemove', updateMousePosition);
-    window.addEventListener('mousedown', handleMouseDown);
-    window.addEventListener('mouseup', handleMouseUp);
-
-    // Enhanced hover detection
-    const handleMouseOver = (e: MouseEvent) => {
-      const target = e.target as HTMLElement;
-
-      // Check for different types of interactive elements
-      if (target.tagName === 'A' || target.classList.contains('nav-link')) {
-        setIsHovering(true);
-        setCursorType('link');
-      } else if (
-        target.tagName === 'BUTTON' ||
-        target.classList.contains('btn-primary')
-      ) {
-        setIsHovering(true);
-        setCursorType('button');
-      } else if (
-        target.classList.contains('project-card') ||
-        target.classList.contains('experience-card') ||
-        target.classList.contains('cursor-pointer')
-      ) {
-        setIsHovering(true);
-        setCursorType('interactive');
-      } else if (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA') {
-        setIsHovering(true);
-        setCursorType('text');
-      } else {
-        setIsHovering(false);
-        setCursorType('default');
-      }
+    const onMove = (e: MouseEvent) => {
+      target.current = { x: e.clientX, y: e.clientY };
     };
 
-    const handleMouseOut = () => {
-      setIsHovering(false);
-      setCursorType('default');
-    };
+    const onDown = () => document.body.classList.add('cursor-clicking');
+    const onUp = () => document.body.classList.remove('cursor-clicking');
 
-    window.addEventListener('mouseover', handleMouseOver);
-    window.addEventListener('mouseout', handleMouseOut);
+    window.addEventListener('mousemove', onMove, { passive: true });
+    window.addEventListener('mousedown', onDown, { passive: true });
+    window.addEventListener('mouseup', onUp, { passive: true });
 
     return () => {
-      window.removeEventListener('mousemove', updateMousePosition);
-      window.removeEventListener('mousedown', handleMouseDown);
-      window.removeEventListener('mouseup', handleMouseUp);
-      window.removeEventListener('mouseover', handleMouseOver);
-      window.removeEventListener('mouseout', handleMouseOut);
+      cancelAnimationFrame(rafId.current);
+      document.documentElement.classList.remove('custom-cursor-active');
+      document.body.classList.remove('cursor-clicking');
+      window.removeEventListener('mousemove', onMove);
+      window.removeEventListener('mousedown', onDown);
+      window.removeEventListener('mouseup', onUp);
     };
   }, []);
 
   return (
     <>
-      {/* Main cursor dot */}
-      <div
-        className={`custom-cursor-dot ${cursorType} ${
-          isClicking ? 'clicking' : ''
-        }`}
-        style={{
-          left: mousePosition.x,
-          top: mousePosition.y,
-          transform: `translate(-50%, -50%) scale(${isClicking ? 0.7 : 1})`,
-        }}
-      />
-
-      {/* Cursor ring */}
-      <div
-        className={`custom-cursor-ring ${cursorType} ${
-          isClicking ? 'clicking' : ''
-        }`}
-        style={{
-          left: mousePosition.x,
-          top: mousePosition.y,
-          transform: `translate(-50%, -50%) scale(${isHovering ? 2.5 : 1})`,
-        }}
-      />
-
-      {/* Cursor trail effect */}
-      <div
-        className="custom-cursor-trail"
-        style={{
-          left: mousePosition.x,
-          top: mousePosition.y,
-          transform: `translate(-50%, -50%) scale(${isHovering ? 1.5 : 0.8})`,
-        }}
-      />
+      <div ref={dotRef} className="custom-cursor-dot" aria-hidden />
+      <div ref={ringRef} className="custom-cursor-ring" aria-hidden />
     </>
   );
 }

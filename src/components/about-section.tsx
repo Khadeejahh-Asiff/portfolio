@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { EXPERTISE_DATA } from '@/constants';
+import { EXPERTISE_DATA, ABOUT, PERSONAL_INFO } from '@/constants';
 import { SectionHeader } from '@/components/ui/SectionHeader';
 import { TechStack } from '@/components/ui/TechStack';
 
@@ -14,7 +14,7 @@ const ExpertiseSection = () => {
   return (
     <section
       id="expertise"
-      className="py-24 relative"
+      className="py-24 relative scroll-mt-24"
       style={{ backgroundColor: 'hsl(var(--background))' }}
     >
       {/* Subtle background pattern */}
@@ -31,64 +31,6 @@ const ExpertiseSection = () => {
         ></div>
       </div>
 
-      {/* Floating elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <motion.div
-          animate={{
-            y: [0, -20, 0],
-            x: [0, 10, 0],
-            rotate: [0, 5, 0],
-          }}
-          transition={{
-            duration: 6,
-            repeat: Infinity,
-            ease: 'easeInOut',
-          }}
-          className="absolute top-20 left-10 w-2 h-2 bg-hsl(var(--accent)) opacity-30 rounded-full"
-        />
-        <motion.div
-          animate={{
-            y: [0, 15, 0],
-            x: [0, -8, 0],
-            rotate: [0, -3, 0],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: 'easeInOut',
-            delay: 1,
-          }}
-          className="absolute top-40 right-20 w-1.5 h-1.5 bg-hsl(var(--primary)) opacity-20 rounded-full"
-        />
-        <motion.div
-          animate={{
-            y: [0, -10, 0],
-            x: [0, 12, 0],
-            rotate: [0, 8, 0],
-          }}
-          transition={{
-            duration: 7,
-            repeat: Infinity,
-            ease: 'easeInOut',
-            delay: 2,
-          }}
-          className="absolute bottom-40 left-20 w-1 h-1 bg-hsl(var(--accent)) opacity-25 rounded-full"
-        />
-        <motion.div
-          animate={{
-            y: [0, 20, 0],
-            x: [0, -15, 0],
-            rotate: [0, -5, 0],
-          }}
-          transition={{
-            duration: 9,
-            repeat: Infinity,
-            ease: 'easeInOut',
-            delay: 0.5,
-          }}
-          className="absolute bottom-20 right-10 w-2.5 h-2.5 bg-hsl(var(--primary)) opacity-15 rounded-full"
-        />
-      </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
@@ -100,7 +42,7 @@ const ExpertiseSection = () => {
         >
           <SectionHeader
             title="My Expertise"
-            description="Technical skills and expertise in modern web development"
+            description="Stacks and tools I use to ship reliable products"
             indicator="EXPERTISE"
             isInView={isInView}
             className="text-center"
@@ -258,7 +200,7 @@ const ExpertiseSection = () => {
                     &lt;title&gt;
                   </span>
                   <span style={{ color: 'hsl(var(--foreground))' }}>
-                    Maryam Ali - Portfolio
+                    {PERSONAL_INFO.name} - Portfolio
                   </span>
                   <span style={{ color: 'hsl(var(--primary))' }}>
                     &lt;/title&gt;
@@ -279,7 +221,7 @@ const ExpertiseSection = () => {
                     &lt;h1&gt;
                   </span>
                   <span style={{ color: 'hsl(var(--foreground))' }}>
-                    Building scalable full-stack solutions
+                    Building responsive MERN applications
                   </span>
                   <span style={{ color: 'hsl(var(--primary))' }}>
                     &lt;/h1&gt;
@@ -290,7 +232,7 @@ const ExpertiseSection = () => {
                     &lt;p&gt;
                   </span>
                   <span style={{ color: 'hsl(var(--foreground))' }}>
-                    Delivering clean architecture, secure APIs, and modern UIs.
+                    {ABOUT.paragraphs[0]}
                   </span>
                   <span style={{ color: 'hsl(var(--primary))' }}>
                     &lt;/p&gt;
@@ -301,7 +243,7 @@ const ExpertiseSection = () => {
                     &lt;span&gt;
                   </span>
                   <span style={{ color: 'hsl(var(--foreground))' }}>
-                    Focused on reliability, performance, and business impact.
+                    {ABOUT.paragraphs[2]}
                   </span>
                   <span style={{ color: 'hsl(var(--primary))' }}>
                     &lt;/span&gt;

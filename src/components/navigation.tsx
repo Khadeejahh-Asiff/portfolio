@@ -7,6 +7,8 @@ import { NAV_ITEMS } from '@/constants';
 import { useActiveSection } from '@/hooks/useActiveSection';
 import { useScrollProgress } from '@/hooks/useScrollProgress';
 import { scrollToSection } from '@/utils/scrollUtils';
+import { ProfileAvatar } from '@/components/ui/ProfileAvatar';
+import { PERSONAL_INFO } from '@/constants';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -29,7 +31,6 @@ const Navigation = () => {
 
   return (
     <>
-      {/* Scroll Progress Indicator */}
       <motion.div
         className="scroll-progress-bar"
         initial={{ scaleX: 0 }}
@@ -43,22 +44,16 @@ const Navigation = () => {
               'linear-gradient(90deg, hsl(var(--accent)) 0%, hsl(var(--primary)) 50%, hsl(var(--accent)) 100%)',
             scaleX: scrollProgress / 100,
           }}
-          transition={{ type: 'spring', stiffness: 100, damping: 30 }}
+          transition={{ duration: 0.12, ease: 'linear' }}
         />
-
-        {/* Moving Scroll Icon */}
         <motion.div
           className="scroll-icon"
-          style={{
-            left: `${scrollProgress}%`,
-          }}
-          transition={{ type: 'spring', stiffness: 100, damping: 30 }}
+          style={{ left: `${scrollProgress}%` }}
+          transition={{ duration: 0.12, ease: 'linear' }}
         >
           <ChevronDown
             className="w-2.5 h-2.5"
-            style={{
-              transform: `rotate(${scrollProgress * 3.6}deg)`,
-            }}
+            style={{ transform: `rotate(${scrollProgress * 3.6}deg)` }}
           />
         </motion.div>
       </motion.div>
@@ -67,75 +62,73 @@ const Navigation = () => {
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6, ease: 'easeOut' }}
-        className="fixed top-1 left-0 right-0 z-50 bg-hsl(var(--background) / 0.8) backdrop-blur-xl border-b border-hsl(var(--border) / 0.2)"
+        className="fixed top-1 left-0 right-0 z-50 bg-[hsl(var(--background)/0.85)] backdrop-blur-xl border-b border-[hsl(var(--border)/0.2)]"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16 sm:h-20">
-            {/* Logo */}
-            <motion.div
-              whileHover={{ scale: 1.02 }}
-              className="navbar-logo text-base sm:text-lg md:text-xl font-mono font-medium"
-              style={{ color: 'hsl(var(--accent))' }}
+          <motion.div className="flex justify-between items-center h-16 sm:h-20">
+            <motion.button
+              type="button"
+              whileHover={{ scale: 1.01 }}
+              onClick={() => handleNavClick('#home')}
+              className="flex items-center gap-3 min-w-0"
             >
-              <span className="hidden xs:inline">KhadeejahAsif</span>
-              <span className="xs:hidden">Maryam</span>
-              <span style={{ color: 'hsl(var(--primary))' }}>._</span>
-            </motion.div>
+              <ProfileAvatar size="sm" />
+              <span className="navbar-logo text-sm sm:text-base font-medium text-[hsl(var(--foreground))] truncate hidden sm:block">
+                {PERSONAL_INFO.name}
+              </span>
+            </motion.button>
 
-            {/* Desktop Navigation */}
-            <nav
-              className="hidden md:flex items-center space-x-8"
-              role="navigation"
-              aria-label="Main navigation"
-            >
-              {NAV_ITEMS.map((item, index) => (
-                <motion.button
-                  key={item.name}
-                  initial={{ opacity: 0, y: -20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4, delay: index * 0.1 }}
-                  whileHover={{ y: -1 }}
-                  onClick={() => handleNavClick(item.href)}
-                  aria-label={`Navigate to ${item.name} section`}
-                  className={`relative text-sm font-mono transition-colors duration-300 ${
-                    activeSection === item.name
-                      ? 'text-hsl(var(--accent))'
-                      : 'text-hsl(var(--muted-foreground)) hover:text-hsl(var(--foreground))'
-                  }`}
-                  style={{
-                    color:
-                      activeSection === item.name
-                        ? 'hsl(var(--accent))'
-                        : 'hsl(var(--muted-foreground))',
-                  }}
-                >
-                  <span className="uppercase tracking-wide">{item.name}</span>
+            <div className="hidden md:flex items-center gap-6">
+              <nav
+                className="flex items-center space-x-8"
+                role="navigation"
+                aria-label="Main navigation"
+              >
+                {NAV_ITEMS.map((item, index) => (
+                  <motion.button
+                    key={item.name}
+                    type="button"
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4, delay: index * 0.1 }}
+                    whileHover={{ y: -1 }}
+                    onClick={() => handleNavClick(item.href)}
+                    aria-label={`Navigate to ${item.name} section`}
+                    className="relative text-sm font-mono transition-colors duration-300"
+                    style={{
+                      color:
+                        activeSection === item.name
+                          ? 'hsl(var(--primary))'
+                          : 'hsl(var(--muted-foreground))',
+                    }}
+                  >
+                    <span className="uppercase tracking-wide">{item.name}</span>
+                    {activeSection === item.name && (
+                      <motion.div
+                        layoutId="activeIndicator"
+                        className="absolute -bottom-2 left-0 right-0 h-0.5 rounded-full"
+                        style={{ backgroundColor: 'hsl(var(--primary))' }}
+                        initial={false}
+                        transition={{
+                          type: 'spring',
+                          stiffness: 500,
+                          damping: 30,
+                        }}
+                      />
+                    )}
+                  </motion.button>
+                ))}
+              </nav>
+            </div>
 
-                  {/* Active indicator */}
-                  {activeSection === item.name && (
-                    <motion.div
-                      layoutId="activeIndicator"
-                      className="absolute -bottom-2 left-0 right-0 h-0.5 rounded-full"
-                      style={{ backgroundColor: 'hsl(var(--accent))' }}
-                      initial={false}
-                      transition={{
-                        type: 'spring',
-                        stiffness: 500,
-                        damping: 30,
-                      }}
-                    />
-                  )}
-                </motion.button>
-              ))}
-            </nav>
-
-            {/* Mobile menu button */}
-            <div className="md:hidden">
+            <div className="md:hidden flex items-center gap-2">
               <motion.button
+                type="button"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => setIsOpen(!isOpen)}
-                className="p-2 text-hsl(var(--foreground)) hover:text-hsl(var(--accent)) transition-colors duration-300"
+                className="p-2 text-[hsl(var(--foreground))] hover:text-[hsl(var(--accent))] transition-colors duration-300"
+                aria-label={isOpen ? 'Close menu' : 'Open menu'}
               >
                 {isOpen ? (
                   <X className="h-5 w-5 sm:h-6 sm:w-6" />
@@ -144,35 +137,31 @@ const Navigation = () => {
                 )}
               </motion.button>
             </div>
-          </div>
+          </motion.div>
 
-          {/* Mobile Navigation */}
           {isOpen && (
             <motion.div
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3, ease: 'easeInOut' }}
-              className="md:hidden border-t border-hsl(var(--border) / 0.2)"
+              className="md:hidden border-t border-[hsl(var(--border)/0.2)]"
             >
               <div className="py-3 sm:py-4 space-y-1">
                 {NAV_ITEMS.map((item, index) => (
                   <motion.button
                     key={item.name}
+                    type="button"
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.3, delay: index * 0.1 }}
                     onClick={() => handleNavClick(item.href)}
                     aria-label={`Navigate to ${item.name} section`}
-                    className={`block w-full text-left px-4 py-2.5 sm:py-3 text-sm font-mono transition-colors duration-300 ${
-                      activeSection === item.name
-                        ? 'text-hsl(var(--accent)) bg-hsl(var(--primary) / 0.1)'
-                        : 'text-hsl(var(--muted-foreground)) hover:text-hsl(var(--foreground)) hover:bg-hsl(var(--accent) / 0.05)'
-                    }`}
+                    className="block w-full text-left px-4 py-2.5 sm:py-3 text-sm font-mono transition-colors duration-300"
                     style={{
                       color:
                         activeSection === item.name
-                          ? 'hsl(var(--accent))'
+                          ? 'hsl(var(--primary))'
                           : 'hsl(var(--muted-foreground))',
                       backgroundColor:
                         activeSection === item.name

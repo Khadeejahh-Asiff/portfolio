@@ -1,4 +1,4 @@
-// Portfolio Constants
+// Portfolio Constants — Khadeeja Asif
 
 import {
   Code,
@@ -9,227 +9,244 @@ import {
   Cpu,
   Globe,
   Zap,
+  Brain,
+  Layers,
 } from 'lucide-react';
+
+export const PROFILE_IMAGE = '/me.jpeg' as const;
+
+export const PERSONAL_INFO = {
+  name: 'Khadeeja Asif',
+  title: 'Software Engineer',
+  subtitle: 'MERN Stack Developer',
+  tagline:
+    'Building fast, scalable web apps with React, Next.js, Node.js, NestJS, and MongoDB.',
+} as const;
+
+export const HERO_TECH = [
+  'React',
+  'Next.js',
+  'TypeScript',
+  'Node.js',
+  'NestJS',
+  'MongoDB',
+] as const;
+
+export const ABOUT = {
+  paragraphs: [
+    'I build fast, scalable web apps using React, Next.js, Node.js, NestJS, and MongoDB. From job portals to internal workflow tools used by real teams.',
+    "I've shipped production features across startup, agency, and freelance environments, working directly with clients to turn requirements into working products. I care about clean architecture, responsive UI, and code that's easy to maintain.",
+    'Currently building at Techverx. Open to remote roles and freelance projects feel free to connect :)',
+  ],
+} as const;
+
+export const EDUCATION = {
+  degree: 'Bachelor of Science in Software Engineering',
+  school: 'University of Central Punjab',
+  location: 'Lahore, Pakistan',
+  period: '07/2020 – 07/2024',
+  gpa: '3.61 / 4.00',
+} as const;
 
 export const NAV_ITEMS = [
   { name: 'home', href: '#home' },
   { name: 'expertise', href: '#expertise' },
-  { name: 'work', href: '#work' },
+  { name: 'work', href: '#showcase' },
   { name: 'contact', href: '#contact' },
 ] as const;
 
 export const EXPERTISE_DATA = [
   {
-    title: 'Backend Development',
-    highlight: 'ASP.NET Core, C#, .NET',
-    description:
-      'Building secure and scalable APIs and enterprise systems with modern .NET stack and proven backend patterns.',
-    icon: Database,
-    technologies: [
-      'ASP.NET Core',
-      'ASP.NET MVC',
-      'C#',
-      '.NET 6-9',
-      'Web API',
-      'REST APIs',
-      'Entity Framework Core',
-      'LINQ',
-      'Razor Pages',
-    ],
-  },
-  {
     title: 'Frontend Development',
-    highlight: 'React Ecosystem, Modern UI',
+    highlight: 'React, Next.js, Modern UI',
     description:
-      'Creating responsive, component-driven interfaces with strong focus on performance, clean UX, and production-ready frontend architecture.',
+      'Building responsive, component-driven interfaces with React, Next.js, and Tailwind — focused on performance, accessibility, and polished user experiences.',
     icon: Code,
     technologies: [
       'React.js',
       'Next.js',
       'Remix.js',
-      'JavaScript (ES6+)',
       'TypeScript',
-      'jQuery',
-      'AJAX',
+      'JavaScript (ES6+)',
       'HTML5',
       'CSS3',
       'Tailwind CSS',
       'ShadCN UI',
       'Material UI',
       'React Bootstrap',
+      'Framer Motion',
+      'Responsive Design',
+      'SSR / SSG / ISR',
+    ],
+  },
+  {
+    title: 'State & Data Fetching',
+    highlight: 'Redux, TanStack Query, SWR',
+    description:
+      'Managing client and server state with predictable patterns, caching, and optimistic updates for fast, reliable UIs.',
+    icon: Layers,
+    technologies: [
       'Redux Toolkit',
       'React Query (TanStack Query)',
       'SWR',
-      'Responsive Design',
-      'Razor UI',
+      'Zustand',
+      'API Integration',
+      'REST APIs',
     ],
   },
   {
-    title: 'Architecture, Security & Messaging',
-    highlight: 'Clean Architecture, Auth, Event-Driven',
+    title: 'Backend & APIs',
+    highlight: 'Node.js, NestJS, Express',
     description:
-      'Designing maintainable systems with clean architecture, secure authentication flows, and reliable background/event processing.',
-    icon: Cpu,
+      'Integrating REST APIs and backend services with Node.js, NestJS, and Express for full-stack delivery.',
+    icon: Database,
     technologies: [
-      'Clean Architecture',
-      'Microservices',
-      'Repository Pattern',
-      'MVC',
-      'Layered Architecture',
-      'Multi-Tenant Systems',
-      'JWT Authentication',
-      'OAuth',
-      'ASP.NET Identity',
-      'RBAC',
-      'Keycloak',
-      'RabbitMQ',
-      'MassTransit',
-      'Hangfire',
-      'Background Worker Services',
-      'Event-Driven Architecture',
-    ],
-  },
-  {
-    title: 'Databases & Platforms',
-    highlight: 'SQL, NoSQL, Dev Tooling',
-    description:
-      'Working across relational and NoSQL databases with practical DevOps-friendly workflows and deployment tooling.',
-    icon: Globe,
-    technologies: [
-      'SQL Server',
-      'PostgreSQL',
-      'MySQL',
-      'MongoDB',
-      'Firebase Realtime Database',
-      'Docker',
-      'Git',
-      'GitHub',
-      'GitLab',
-      'Azure DevOps',
+      'Node.js',
+      'NestJS',
+      'Express.js',
+      'FastAPI',
+      'REST APIs',
+      'Socket.io',
+      'Prisma ORM',
       'Postman',
       'Swagger',
       'Insomnia',
-      'Visual Studio',
-      'VS Code',
+    ],
+  },
+  {
+    title: 'Databases & DevOps',
+    highlight: 'MongoDB, PostgreSQL, Docker',
+    description:
+      'Working with relational and document databases, ORMs, and deployment workflows on Vercel, Netlify, and containerized environments.',
+    icon: Globe,
+    technologies: [
+      'MongoDB',
+      'PostgreSQL',
+      'Supabase',
+      'Prisma ORM',
+      'Docker',
       'Vercel',
       'Netlify',
+      'Git & GitHub',
     ],
   },
   {
-    title: 'Full-Stack Delivery',
-    highlight: 'MERN + Integrations + Optimization',
+    title: 'AI & Emerging Tech',
+    highlight: 'Gen AI, RAG, Prompt Engineering',
     description:
-      'Delivering end-to-end product features by combining MERN development, API integration, and performance-focused engineering.',
-    icon: Code,
+      'Exploring generative AI, agentic workflows, and RAG to build smarter product features and automate workflows.',
+    icon: Brain,
     technologies: [
-      'Node.js',
-      'Express.js',
-      'REST APIs',
-      'API Integration',
-      'CRM Integrations',
-      'Performance Optimization',
-      'Database Design',
-      'Query Optimization',
-      'Debugging',
-      'Agile/Scrum',
-      'Figma',
+      'Generative AI',
+      'Agentic AI',
       'AI Basics',
       'Prompt Engineering',
+      'RAG',
     ],
   },
   {
-    title: 'Performance Optimization',
-    highlight: 'Frontend + Backend Performance',
+    title: 'Performance & Architecture',
+    highlight: 'Optimization, Clean Components',
     description:
-      'Frontend: improving perceived speed and runtime efficiency with React/Next.js best practices—bundle splitting, lazy loading, memoization, image optimization, and efficient data-fetch caching (React Query, SWR). Backend: faster APIs and data paths via query tuning, indexing, lean payloads, and async/background processing so the UI stays responsive under load.',
+      'Delivering maintainable, component-based architectures with bundle optimization, lazy loading, and Core Web Vitals in mind.',
     icon: Zap,
     technologies: [
+      'Performance Optimization',
+      'Component-Based Architecture',
       'Core Web Vitals',
-      'React / Next.js Performance',
-      'Lazy Loading',
       'Code Splitting',
       'Memoization',
-      'Image Optimization',
-      'Web Workers',
-      'React Query (TanStack Query)',
-      'SWR Caching',
-      'Bundle Optimization',
-      'Query Optimization',
-      'Indexing',
-      'API Response Optimization',
-      'Background Jobs',
-      'RabbitMQ',
-      'Performance Profiling',
-      'Load Testing',
+      'Figma',
     ],
   },
 ] as const;
 
-export const EXPERIENCE_DATA = [
+/** Projects — unchanged */
+export const PROJECTS_DATA = [
   {
-    title: 'Associate Software Developer (Frontend)',
-    company: 'Tekvaly, Phenologix',
-    location: 'Canada',
-    period: '04/2024 - Present',
-    workType: 'Hybrid' as const,
+    id: 'heartland',
+    name: 'Heartland Rehab',
+    category: 'Healthcare · Physical Therapy',
     description:
-      'Designed and optimized responsive UIs using React.js, Next.js, and SWR, ensuring seamless performance and data handling. Built and maintained management and job portal platforms with features like authentication, attendance tracking, and workflow automation.',
-    technologies: [
-      { name: 'React.js', level: 95, icon: Code },
-      { name: 'Next.js', level: 90, icon: Globe },
-      { name: 'SWR', level: 85, icon: Database },
-      { name: 'TypeScript', level: 90, icon: Code },
-      { name: 'Web Workers', level: 80, icon: Cpu },
-    ],
-    website: 'https://tekvaly.com',
-    logo: 'TEK',
-    expanded: true,
-    achievements: [
-      'Resolved critical rendering issues and revamped UIs',
-      'Implemented performance optimizations (caching, Web Workers, refetching, validations)',
-      'Developed role-based features for HR teams, job seekers, and company owners',
-      'Ensured smooth and consistent global user experience',
-    ],
-    type: 'Frontend' as const,
-    contact: 'Hamza Ahmed (Technical Lead) - 0322 4874405',
+      'A rehabilitation platform offering personalized physical therapy and recovery programs — holistic care through a user-friendly interface and streamlined patient experience.',
+    image: '/p1.png',
+    tech: ['React', 'Next.js', 'TypeScript', 'REST APIs'],
+    featured: true,
   },
   {
-    title: 'Junior MERN Stack Developer',
-    company: 'WebSouls',
-    location: 'Lahore, Pakistan',
-    period: '05/2023 - 12/2023',
-    workType: 'On-site' as const,
+    id: 'hiredroid',
+    featured: false,
+    name: 'HireDroid',
+    category: 'Job Portal · HR',
     description:
-      'Developed full-stack web platforms Voyage Vista (property booking) and ShopEase (e-commerce) using the MERN stack. Built key features like search, filtering, booking, cart, and checkout flows, ensuring smooth user interaction and data flow. Worked on both the front-end and back-end of the projects. Collaborated with the team to deliver on time.',
-    technologies: [
-      { name: 'React.js', level: 90, icon: Code },
-      { name: 'Node.js', level: 85, icon: Database },
-      { name: 'Express.js', level: 85, icon: Database },
-      { name: 'MongoDB', level: 80, icon: Database },
-      { name: 'Tailwind CSS', level: 90, icon: Code },
-    ],
-    website: 'https://websouls.com',
-    logo: 'WS',
-    expanded: false,
-    achievements: [
-      'Designed responsive and dynamic UIs with React.js and Tailwind CSS',
-      'Integrated Node.js/Express and MongoDB for secure authentication',
-      'Implemented user sessions and role-based access control',
-      'Built seamless cross-device experiences',
-    ],
-    type: 'Full-Stack' as const,
+      'Skill-focused job portal connecting employers with candidates — explore opportunities, build profiles, and manage hiring workflows efficiently.',
+    image: '/p3.png',
+    tech: ['Next.js', 'React', 'TypeScript', 'SWR'],
+  },
+  {
+    id: 'scrumdroid',
+    featured: false,
+    name: 'ScrumDroid',
+    category: 'Management Platform',
+    description:
+      'Web-based platform streamlining internal workflows — centralized interface for tasks, activity monitoring, and data across modules.',
+    image: '/p2.png',
+    tech: ['React.js', 'SWR', 'Performance', 'Caching'],
+  },
+  {
+    id: 'akredcenter',
+    featured: false,
+    name: 'AkredCenter',
+    category: 'Accreditation Management',
+    description:
+      'Secure dashboard to track, manage, and organize accreditation data — simplifying submission, approval, and status tracking workflows.',
+    image: '/p4.jpeg',
+    tech: ['React', 'Next.js', 'Dashboard', 'Secure APIs'],
+  },
+  {
+    id: 'tickato',
+    featured: false,
+    name: 'Tickato',
+    category: 'Event Ticketing',
+    description:
+      'Ticket management platform for event ticketing and user interactions — intuitive browsing and scalable ticket workflows.',
+    image: '/p5.jpeg',
+    tech: ['React', 'Next.js', 'TypeScript', 'Scalable UI'],
+  },
+  {
+    id: 'dmg',
+    featured: false,
+    name: 'DMG',
+    category: 'AI · Email Automation',
+    description:
+      'Intelligent system using a Vision-Language Model to categorize emails and extract structured JSON for workflow automation.',
+    image: '/p6.jpeg',
+    tech: ['VLM', 'AI', 'JSON Extraction', 'Automation'],
   },
 ] as const;
+
+export const CONTACT_INFO = {
+  email: 'khadeejaasif323@gmail.com',
+  phone: '+92 333 4304342',
+  location: 'Lahore, Pakistan',
+  linkedin: 'https://linkedin.com/in/khadeejah-asif',
+  github: 'https://github.com/Khadeejahh-Asiff',
+} as const;
 
 export const CONTACT_METHODS = [
   {
     icon: Mail,
-    href: 'mailto:marium.ali1623@gmail.com',
+    href: `mailto:${CONTACT_INFO.email}`,
+    color: 'hsl(var(--accent))',
+  },
+  {
+    icon: Linkedin,
+    href: CONTACT_INFO.linkedin,
     color: 'hsl(var(--accent))',
   },
   {
     icon: Github,
-    href: 'https://github.com/merium6',
+    href: CONTACT_INFO.github,
     color: 'hsl(var(--accent))',
   },
 ] as const;
@@ -237,12 +254,17 @@ export const CONTACT_METHODS = [
 export const SOCIAL_LINKS = [
   {
     icon: Github,
-    href: 'https://github.com/merium6',
+    href: CONTACT_INFO.github,
+    color: 'hsl(var(--accent))',
+  },
+  {
+    icon: Linkedin,
+    href: CONTACT_INFO.linkedin,
     color: 'hsl(var(--accent))',
   },
   {
     icon: Mail,
-    href: 'mailto:marium.ali1623@gmail.com',
+    href: `mailto:${CONTACT_INFO.email}`,
     color: 'hsl(var(--accent))',
   },
 ] as const;
@@ -262,12 +284,4 @@ export const BREAKPOINTS = {
   lg: '1024px',
   xl: '1280px',
   '2xl': '1536px',
-} as const;
-
-export const CONTACT_INFO = {
-  email: 'khadeejaasif323@gmail.com',
-  phone: '+92 333 4304342',
-  location: 'Lahore, Pakistan',
-  linkedin: 'https://linkedin.com/in/khadeejah-asif',
-  github: 'https://github.com/Khadeejahh-Asiff',
 } as const;

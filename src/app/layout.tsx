@@ -13,11 +13,12 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://khadeeja-portfolio.vercel.app'),
-  title: 'Maryam Ali - Full Stack Developer',
+  title: 'Khadeeja Asif - Software Engineer',
   description:
-    'Full Stack Developer skilled in React.js, Next.js, TypeScript, Node.js, and MongoDB. Building responsive, high-performance web applications.',
+    'MERN Stack Developer skilled in React, Next.js, TypeScript, and Node.js. Building responsive, scalable web applications in Lahore, Pakistan.',
   keywords: [
-    'Full Stack Developer',
+    'Software Engineer',
+    'MERN Stack Developer',
     'React',
     'Next.js',
     'TypeScript',
@@ -31,9 +32,9 @@ export const metadata: Metadata = {
     'Lahore',
     'Pakistan',
   ],
-  authors: [{ name: 'Khadeejah Asif' }],
-  creator: 'Khadeejah Asif',
-  publisher: 'Khadeejah Asif',
+  authors: [{ name: 'Khadeeja Asif' }],
+  creator: 'Khadeeja Asif',
+  publisher: 'Khadeeja Asif',
   robots: 'index, follow',
   alternates: {
     canonical: 'https://khadeeja-portfolio.vercel.app',
@@ -42,25 +43,25 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: 'https://khadeeja-portfolio.vercel.app',
-    title: 'Khadeejah Asif - Full Stack Developer',
+    title: 'Khadeeja Asif - Software Engineer',
     description:
-      'Full Stack Developer skilled in React.js, Next.js, TypeScript, Node.js, and MongoDB. Building responsive, high-performance web applications.',
-    siteName: 'Khadeejah Asif Portfolio',
+      'MERN Stack Developer skilled in React, Next.js, TypeScript, and Node.js. Building responsive, scalable web applications.',
+    siteName: 'Khadeeja Asif Portfolio',
     images: [
       {
-        url: '/og-image.jpg',
+        url: '/me.jpeg',
         width: 1200,
         height: 630,
-        alt: 'Khadeejah Asif - Full Stack Developer',
+        alt: 'Khadeeja Asif - Software Engineer',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Khadeejah Asif - Full Stack Developer',
+    title: 'Khadeeja Asif - Software Engineer',
     description:
-      'Full Stack Developer skilled in React.js, Next.js, TypeScript, Node.js, and MongoDB.',
-    images: ['/og-image.jpg'],
+      'MERN Stack Developer skilled in React, Next.js, TypeScript, and Node.js.',
+    images: ['/me.jpeg'],
   },
   verification: {
     google: 'your-google-verification-code',
@@ -73,7 +74,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className="dark" suppressHydrationWarning>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
@@ -83,7 +84,7 @@ export default function RootLayout({
         />
         <link rel="icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-        <meta name="theme-color" content="#2D5A5A" />
+        <meta name="theme-color" content="#110f0e" />
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1, maximum-scale=5"
@@ -93,8 +94,8 @@ export default function RootLayout({
       <body className={`${inter.variable} font-sans antialiased`}>
         <ThemeProvider
           attribute="class"
-          defaultTheme="dark"
-          enableSystem
+          forcedTheme="dark"
+          enableSystem={false}
           disableTransitionOnChange
         >
           <CustomCursor />

@@ -9,22 +9,6 @@ export interface Technology {
   }>;
 }
 
-export interface Experience {
-  title: string;
-  company: string;
-  location: string;
-  period: string;
-  workType: 'Hybrid' | 'On-site' | 'Remote';
-  description: string;
-  technologies: Technology[];
-  website?: string;
-  logo?: string;
-  expanded: boolean;
-  achievements?: string[];
-  type: 'Frontend' | 'Backend' | 'Full-Stack';
-  contact?: string;
-}
-
 export interface Expertise {
   title: string;
   highlight: string;

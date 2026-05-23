@@ -5,13 +5,14 @@ import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { SectionHeader } from '@/components/ui/SectionHeader';
 import { Mail, Github } from 'lucide-react';
+import { CONTACT_INFO } from '@/constants';
 
 const ContactSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section id="contact" className="py-20 bg-background">
+    <section id="contact" className="py-20 bg-background scroll-mt-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           ref={ref}
@@ -72,7 +73,7 @@ const ContactSection = () => {
                   Contact
                 </p>
                 <a
-                  href="mailto:marium.ali1623@gmail.com"
+                  href={`mailto:${CONTACT_INFO.email}`}
                   className="block w-full px-4 py-3 rounded-lg bg-background/50 border border-primary text-foreground hover:bg-primary hover:text-background hover:border-primary transition-all duration-300 text-sm text-center font-medium"
                 >
                   Email
@@ -122,7 +123,7 @@ const ContactSection = () => {
                   Repository
                 </p>
                 <a
-                  href="https://github.com/merium6"
+                  href={CONTACT_INFO.github}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="block w-full px-4 py-3 rounded-lg bg-background/50 border border-primary text-foreground hover:bg-primary hover:text-background hover:border-primary transition-all duration-300 text-sm text-center font-medium"

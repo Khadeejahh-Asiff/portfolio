@@ -1,20 +1,25 @@
 import { useState, useEffect } from 'react';
+import { getScrollProgress } from '@/utils/scrollUtils';
 
 export const useScrollProgress = () => {
   const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
+    let rafId = 0;
+
     const updateScrollProgress = () => {
-      const documentHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const currentProgress = (window.scrollY / documentHeight) * 100;
-      setScrollProgress(Math.min(100, Math.max(0, currentProgress)));
+      cancelAnimationFrame(rafId);
+      rafId = requestAnimationFrame(() => {
+        setScrollProgress(getScrollProgress());
+      });
     };
 
     window.addEventListener('scroll', updateScrollProgress, { passive: true });
-    updateScrollProgress(); // Initial call
+    updateScrollProgress();
 
     return () => {
       window.removeEventListener('scroll', updateScrollProgress);
+      cancelAnimationFrame(rafId);
     };
   }, []);
 
