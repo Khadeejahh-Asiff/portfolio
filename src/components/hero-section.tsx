@@ -104,7 +104,12 @@ const HeroSection = () => {
             <motion.div className="order-1 lg:order-2 flex flex-col items-center justify-center gap-4 py-4 lg:py-6">
               <motion.div className="relative w-full max-w-[280px] sm:max-w-[320px] lg:max-w-none flex justify-center">
                 <div className="hero-initials-card w-full max-w-[300px] sm:max-w-[340px] aspect-[4/5] h-auto !w-full">
+                  <span className="hero-initials-chip">Full Stack Developer</span>
+                  <span className="hero-initials-dot hero-initials-dot--one" />
+                  <span className="hero-initials-dot hero-initials-dot--two" />
+                  <span className="hero-initials-card-glow" />
                   <span className="hero-initials-card-ring" />
+                  <span className="hero-initials-card-ring hero-initials-card-ring--inner" />
                   <span className="hero-initials-card-text">KA</span>
                 </div>
                 <motion.div className="hero-float-card hero-float-card--stack">
