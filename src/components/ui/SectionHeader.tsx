@@ -36,11 +36,11 @@ export const SectionHeader = ({
           transition={{ duration: 0.8, delay: 0.4 }}
           className="flex items-center justify-center gap-2 mb-4"
         >
-          <div className="w-2 h-2 rounded-full bg-hsl(var(--accent))"></div>
-          <span className="font-mono text-xs text-hsl(var(--accent)) tracking-wider">
+          <div className="w-2 h-2 rounded-full bg-[hsl(var(--accent))]"></div>
+          <span className="font-mono text-xs text-[hsl(var(--accent))] tracking-wider">
             {indicator}
           </span>
-          <div className="w-2 h-2 rounded-full bg-hsl(var(--accent))"></div>
+          <div className="w-2 h-2 rounded-full bg-[hsl(var(--accent))]"></div>
         </motion.div>
       )}
 

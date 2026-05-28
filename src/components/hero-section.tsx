@@ -1,13 +1,9 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { PERSONAL_INFO, CONTACT_INFO, ABOUT, HERO_TECH } from '@/constants';
+import { PERSONAL_INFO, CONTACT_INFO, ABOUT, HERO_TECH, HERO_CARD } from '@/constants';
 import { scrollToSection } from '@/utils/scrollUtils';
 import { MapPin, Mail, Linkedin, ArrowRight } from 'lucide-react';
-
-const HERO_INITIALS = 'KA';
-const HERO_ROLE_CHIP = 'Full Stack Developer';
-const HERO_STACK_TEXT = 'React · Next · Node · Nest';
 
 const HeroSection = () => {
   return (
@@ -108,20 +104,20 @@ const HeroSection = () => {
             <motion.div className="order-1 lg:order-2 flex flex-col items-center justify-center gap-4 py-4 lg:py-6">
               <motion.div className="relative w-full max-w-[280px] sm:max-w-[320px] lg:max-w-none flex justify-center">
                 <div className="hero-initials-card w-full max-w-[300px] sm:max-w-[340px] aspect-[4/5] h-auto !w-full">
-                  <span className="hero-initials-chip">{HERO_ROLE_CHIP}</span>
+                  <span className="hero-initials-chip">{HERO_CARD.role}</span>
                   <span className="hero-initials-dot hero-initials-dot--one" />
                   <span className="hero-initials-dot hero-initials-dot--two" />
                   <span className="hero-initials-card-glow" />
                   <span className="hero-initials-card-ring" />
                   <span className="hero-initials-card-ring hero-initials-card-ring--inner" />
-                  <span className="hero-initials-card-text">{HERO_INITIALS}</span>
+                  <span className="hero-initials-card-text">{HERO_CARD.initials}</span>
                 </div>
                 <motion.div className="hero-float-card hero-float-card--stack">
                   <p className="text-[10px] uppercase tracking-wider text-[hsl(var(--muted-foreground))] mb-1">
                     Stack
                   </p>
                   <p className="text-xs font-mono text-[hsl(var(--foreground))]">
-                    {HERO_STACK_TEXT}
+                    {HERO_CARD.stack}
                   </p>
                 </motion.div>
               </motion.div>

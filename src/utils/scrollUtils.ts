@@ -41,22 +41,6 @@ export const scrollToSection = (href: string): void => {
   frameId = requestAnimationFrame(step);
 };
 
-export const scrollToTop = (): void => {
-  scrollToSection('#home');
-};
-
-export const isElementInViewport = (element: Element): boolean => {
-  const rect = element.getBoundingClientRect();
-  return (
-    rect.top >= 0 &&
-    rect.left >= 0 &&
-    rect.bottom <=
-      (window.innerHeight || document.documentElement.clientHeight) &&
-    rect.right <=
-      (window.innerWidth || document.documentElement.clientWidth)
-  );
-};
-
 export const getScrollProgress = (): number => {
   const documentHeight =
     document.documentElement.scrollHeight - window.innerHeight;

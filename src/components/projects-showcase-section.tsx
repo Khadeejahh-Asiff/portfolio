@@ -6,7 +6,7 @@ import ProjectTapeCarousel from '@/components/ui/ProjectTapeCarousel';
 import { SectionHeader } from '@/components/ui/SectionHeader';
 
 const ProjectsShowcaseSection = () => {
-  const ref = useRef(null);
+  const ref = useRef<HTMLDivElement | null>(null);
   const isInView = useInView(ref, { once: true, margin: '-60px' });
 
   return (

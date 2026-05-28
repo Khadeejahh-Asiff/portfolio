@@ -6,7 +6,7 @@ import { EXPERTISE_DATA } from '@/constants';
 import { SectionHeader } from '@/components/ui/SectionHeader';
 
 const ExpertiseSection = () => {
-  const ref = useRef(null);
+  const ref = useRef<HTMLDivElement | null>(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (

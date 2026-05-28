@@ -10,8 +10,6 @@ import {
   Layers,
 } from 'lucide-react';
 
-export const PROFILE_IMAGE = '/me.jpeg' as const;
-
 export const PERSONAL_INFO = {
   name: 'Khadeeja Asif',
   title: 'Software Engineer',
@@ -29,20 +27,18 @@ export const HERO_TECH = [
   'MongoDB',
 ] as const;
 
+export const HERO_CARD = {
+  initials: 'KA',
+  role: 'Full Stack Developer',
+  stack: 'React · Next · Node · Nest',
+} as const;
+
 export const ABOUT = {
   paragraphs: [
     'I build fast, scalable web apps using React, Next.js, Node.js, NestJS, and MongoDB. From job portals to internal workflow tools used by real teams.',
     "I've shipped production features across startup, agency, and freelance environments, working directly with clients to turn requirements into working products. I care about clean architecture, responsive UI, and code that's easy to maintain.",
     'Open to remote roles and freelance projects feel free to connect :)',
   ],
-} as const;
-
-export const EDUCATION = {
-  degree: 'Bachelor of Science in Software Engineering',
-  school: 'University of Central Punjab',
-  location: 'Lahore, Pakistan',
-  period: '07/2020 – 07/2024',
-  gpa: '3.61 / 4.00',
 } as const;
 
 export const NAV_ITEMS = [
@@ -195,21 +191,38 @@ export const CONTACT_INFO = {
   github: 'https://github.com/Khadeejahh-Asiff',
 } as const;
 
-export const CONTACT_METHODS = [
+export const CONTACT_CHANNELS = [
   {
+    id: 'email',
     icon: Mail,
-    href: `mailto:${CONTACT_INFO.email}`,
-    color: 'hsl(var(--accent))',
+    title: 'Email',
+    subtitle: 'Project inquiries',
+    description:
+      'Reach out for collaborations, freelance work, or just to say hello.',
+    href: `mailto:${CONTACT_INFO.email}?subject=Hello%20Khadeeja`,
+    cta: CONTACT_INFO.email,
+    external: false,
   },
   {
-    icon: Linkedin,
-    href: CONTACT_INFO.linkedin,
-    color: 'hsl(var(--accent))',
-  },
-  {
+    id: 'github',
     icon: Github,
+    title: 'GitHub',
+    subtitle: 'Code & projects',
+    description: 'Browse repositories, contributions, and open-source work.',
     href: CONTACT_INFO.github,
-    color: 'hsl(var(--accent))',
+    cta: 'View profile',
+    external: true,
+  },
+  {
+    id: 'linkedin',
+    icon: Linkedin,
+    title: 'LinkedIn',
+    subtitle: 'Professional network',
+    description:
+      'Connect for opportunities, networking, and career conversations.',
+    href: CONTACT_INFO.linkedin,
+    cta: 'Connect on LinkedIn',
+    external: true,
   },
 ] as const;
 
@@ -231,19 +244,3 @@ export const SOCIAL_LINKS = [
   },
 ] as const;
 
-export const ANIMATION_DELAYS = {
-  STAGGER: 0.1,
-  INITIAL: 0.2,
-  HEADER: 0.4,
-  CONTENT: 0.6,
-  CARDS: 0.8,
-} as const;
-
-export const BREAKPOINTS = {
-  xs: '475px',
-  sm: '640px',
-  md: '768px',
-  lg: '1024px',
-  xl: '1280px',
-  '2xl': '1536px',
-} as const;

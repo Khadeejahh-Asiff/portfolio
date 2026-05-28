@@ -3,46 +3,11 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { SectionHeader } from '@/components/ui/SectionHeader';
-import { Mail, Github, Linkedin, ArrowUpRight, MapPin } from 'lucide-react';
-import { CONTACT_INFO } from '@/constants';
-
-const CONTACT_CHANNELS = [
-  {
-    id: 'email',
-    icon: Mail,
-    title: 'Email',
-    subtitle: 'Project inquiries',
-    description:
-      'Reach out for collaborations, freelance work, or just to say hello.',
-    href: `mailto:${CONTACT_INFO.email}?subject=Hello%20Khadeeja`,
-    cta: CONTACT_INFO.email,
-    external: false,
-  },
-  {
-    id: 'github',
-    icon: Github,
-    title: 'GitHub',
-    subtitle: 'Code & projects',
-    description: 'Browse repositories, contributions, and open-source work.',
-    href: CONTACT_INFO.github,
-    cta: 'View profile',
-    external: true,
-  },
-  {
-    id: 'linkedin',
-    icon: Linkedin,
-    title: 'LinkedIn',
-    subtitle: 'Professional network',
-    description:
-      'Connect for opportunities, networking, and career conversations.',
-    href: CONTACT_INFO.linkedin,
-    cta: 'Connect on LinkedIn',
-    external: true,
-  },
-] as const;
+import { ArrowUpRight, MapPin } from 'lucide-react';
+import { CONTACT_INFO, CONTACT_CHANNELS } from '@/constants';
 
 const ContactSection = () => {
-  const ref = useRef(null);
+  const ref = useRef<HTMLDivElement | null>(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
