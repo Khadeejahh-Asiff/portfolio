@@ -2,7 +2,6 @@
 
 import { motion } from 'framer-motion';
 import { PERSONAL_INFO, CONTACT_INFO, ABOUT, HERO_TECH } from '@/constants';
-import { ProfileAvatar } from '@/components/ui/ProfileAvatar';
 import { scrollToSection } from '@/utils/scrollUtils';
 import { MapPin, Mail, Linkedin, ArrowRight } from 'lucide-react';
 
@@ -104,11 +103,10 @@ const HeroSection = () => {
 
             <motion.div className="order-1 lg:order-2 flex flex-col items-center justify-center gap-4 py-4 lg:py-6">
               <motion.div className="relative w-full max-w-[280px] sm:max-w-[320px] lg:max-w-none flex justify-center">
-                <ProfileAvatar
-                  size="lg"
-                  priority
-                  className="hero-profile-frame w-full max-w-[300px] sm:max-w-[340px] aspect-[4/5] h-auto !w-full"
-                />
+                <div className="hero-initials-card w-full max-w-[300px] sm:max-w-[340px] aspect-[4/5] h-auto !w-full">
+                  <span className="hero-initials-card-ring" />
+                  <span className="hero-initials-card-text">KA</span>
+                </div>
                 <motion.div className="hero-float-card hero-float-card--stack">
                   <p className="text-[10px] uppercase tracking-wider text-[hsl(var(--muted-foreground))] mb-1">
                     Stack

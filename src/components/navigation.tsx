@@ -3,11 +3,10 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Menu, X, ChevronDown } from 'lucide-react';
-import { NAV_ITEMS, PERSONAL_INFO } from '@/constants';
+import { NAV_ITEMS } from '@/constants';
 import { useActiveSection } from '@/hooks/useActiveSection';
 import { useScrollProgress } from '@/hooks/useScrollProgress';
 import { scrollToSection } from '@/utils/scrollUtils';
-import { ProfileAvatar } from '@/components/ui/ProfileAvatar';
 import { ThemeToggle } from '@/components/ui/ThemeToggle';
 
 const Navigation = () => {
@@ -70,12 +69,9 @@ const Navigation = () => {
               type="button"
               whileHover={{ scale: 1.01 }}
               onClick={() => handleNavClick('#home')}
-              className="flex items-center gap-3 min-w-0"
+              className="text-sm sm:text-base font-semibold tracking-wide text-[hsl(var(--foreground))]"
             >
-              <ProfileAvatar size="sm" />
-              <span className="navbar-logo text-sm sm:text-base font-medium text-[hsl(var(--foreground))] truncate hidden sm:block">
-                {PERSONAL_INFO.name}
-              </span>
+              KA
             </motion.button>
 
             <motion.div className="hidden md:flex items-center gap-5">
